@@ -15,6 +15,7 @@ class SegundaController extends Controller
     public function index()
     {
         //
+        return view('segundas.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class SegundaController extends Controller
     public function create()
     {
         //
+        return view('segundas.create');
     }
 
     /**

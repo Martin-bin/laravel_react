@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//---------------------* SEGUNDAS ***************************************************************************
+
+//Route::get('/segundas', 'SegundaController@index');
+//Route::get('/segundas/create','SegundaController@create');
+
+Route::resource('segundas','SegundaController');
