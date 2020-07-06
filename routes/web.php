@@ -20,4 +20,4 @@ Route::get('/', function () {
 //Route::get('/segundas', 'SegundaController@index');
 //Route::get('/segundas/create','SegundaController@create');
 
-Route::resource('segundas','SegundaController');
+Route::resource('segundas','SegundaController'); //con esto evitamos escribir cada una de las rutas 

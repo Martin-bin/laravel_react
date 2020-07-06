@@ -38,6 +38,8 @@ class SegundaController extends Controller
     public function store(Request $request)
     {
         //
+        $datosSegundas=request()->all();
+        return response()->json($datosSegundas); //almacenar datos en el metodo store 
     }
 
     /**
