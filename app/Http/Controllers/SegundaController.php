@@ -66,9 +66,11 @@ class SegundaController extends Controller
      * @param  \App\segunda  $segunda
      * @return \Illuminate\Http\Response
      */
-    public function edit(segunda $segunda)
+    public function edit($id)
     {
         //
+        $v_segunda=Segunda::findOrFail($id);
+        return view('segundas.edit',compact('v_segunda'));
     }
 
     /**

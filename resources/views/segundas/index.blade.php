@@ -22,7 +22,11 @@ Despliegue de datos
 			<td>{{ $segunda->correo }}</td>
 			<td>{{ $segunda->edad }}</td>
 			<td>{{ $segunda->fecha }}</td>
-			<td>Editar | 
+			<td>
+
+			<a href="{{ url('/segundas/'.$segunda->id.'/edit') }}">
+				Editar
+			</a> 
 
            <form method="post" action="{{ url('/segundas/'.$segunda->id) }}">
            	{{csrf_field() }}
