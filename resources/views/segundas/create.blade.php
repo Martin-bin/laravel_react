@@ -19,10 +19,12 @@
     <input type="text" name="edad" id="edad" value="">
     <br><br>
 
-    <label for="fecha">{{'fecha'}}</label>
+    <label for="fecha">{{'Foto'}}</label>
     <input type="file" name="fecha" id="Fecha" value="">
     <br><br>
 
     <input type="submit" value="Agregar">
+    <br>
+    <a href="{{ url('segundas') }}">Regresar</a>
 
 </form>

@@ -47,7 +47,8 @@ class SegundaController extends Controller
            $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public'); //almacenar imagen
        }
         Segunda::insert($datosSegundas);
-        return response()->json($datosSegundas); 
+        //return response()->json($datosSegundas); 
+        return redirect('segundas')->with('Mensaje','Registro agregado');
     }
 
     /**
@@ -88,14 +89,15 @@ class SegundaController extends Controller
 
       if ($request->hasFile('fecha')) {
           $v_segunda=Segunda::findOrFail($id);
-          Storage::delete('public/.$v_segunda->fecha');
+          Storage::delete('public/.$v_segunda->fecha'); //actualizar imagenes para q no se queden almacenadas
           $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public'); //almacenar imagen
        }
 
         Segunda::where('id','=', $id)->update($datosSegundas);
 
-        $v_segunda=Segunda::findOrFail($id);
-        return view('segundas.edit',compact('v_segunda'));
+        //$v_segunda=Segunda::findOrFail($id);
+        //return view('segundas.edit',compact('v_segunda'));
+        return redirect('segundas')->with('Mensaje','Registro modificado');
     }
 
     /**
@@ -106,7 +108,11 @@ class SegundaController extends Controller
      */
     public function destroy($id)
     {
-        Segunda::destroy($id);
-        return redirect('segundas');
+        $v_segunda=Segunda::findOrFail($id);
+
+         if (Storage::delete('public/'.$v_segunda->fecha)){
+              Segunda::destroy($id);
+         }
+        return redirect('segundas')->with('Mensaje','Registro eliminado');
     }
 }

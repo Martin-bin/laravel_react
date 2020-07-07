@@ -1,4 +1,11 @@
-Despliegue de datos
+@if(Session::has('Mensaje')){{
+	Session::get('Mensaje')
+}}
+@endif
+<h2>REGISTROS</h2>
+<br>
+<a href="{{ url('segundas/create') }}">Agregar nuevo</a>
+<br>
 
 <table class="tabla">
 	<thead class="thead">

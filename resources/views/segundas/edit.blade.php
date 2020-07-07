@@ -20,12 +20,14 @@
     <input type="text" name="edad" id="edad" value="{{ $v_segunda->edad }}">
     <br><br>
 
-    <label for="fecha">{{'Fecha'}}</label>
+    <label for="fecha">{{'Foto'}}</label>
     <br>
     <img src="{{ asset('storage').'/'.$v_segunda->fecha }}" alt="" width="200">
     <br>
     <input type="file" name="fecha" id="Fecha" value="">
     <br><br>
     <input type="submit" value ="Guardar cambios">
+    <br><br>
+    <a href="{{ url('segundas') }}">Regresar</a>
 
 </form>
