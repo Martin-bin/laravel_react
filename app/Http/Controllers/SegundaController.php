@@ -15,7 +15,8 @@ class SegundaController extends Controller
     public function index()
     {
         //
-        return view('segundas.index');
+        $datos['indiceSegundas']=segunda::paginate(5);
+        return view('segundas.index',$datos);
     }
 
     /**
@@ -42,7 +43,7 @@ class SegundaController extends Controller
        $datosSegundas=request()->except('_token'); 
 
        if ($request->hasFile('fecha')) {
-           $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public');
+           $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public'); //almacenar imagen
        }
         Segunda::insert($datosSegundas);
         return response()->json($datosSegundas); 
