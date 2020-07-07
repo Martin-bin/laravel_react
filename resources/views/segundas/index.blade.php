@@ -22,7 +22,15 @@ Despliegue de datos
 			<td>{{ $segunda->correo }}</td>
 			<td>{{ $segunda->edad }}</td>
 			<td>{{ $segunda->fecha }}</td>
-			<td>Editar | Borrar</td>
+			<td>Editar | 
+
+           <form method="post" action="{{ url('/segundas/'.$segunda->id) }}">
+           	{{csrf_field() }}
+           	{{ method_field('DELETE') }}
+           	<button type="submit" onclick="return confirm('BORRAR?');">Borrar</button>
+           </form>
+
+			</td>
 		</tr>
 		@endforeach
 	</tbody>

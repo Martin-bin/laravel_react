@@ -89,8 +89,9 @@ class SegundaController extends Controller
      * @param  \App\segunda  $segunda
      * @return \Illuminate\Http\Response
      */
-    public function destroy(segunda $segunda)
+    public function destroy($id)
     {
-        //
+        Segunda::destroy($id);
+        return redirect('segundas');
     }
 }
