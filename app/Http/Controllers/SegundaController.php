@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\segunda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SegundaController extends Controller
 {
@@ -84,6 +85,13 @@ class SegundaController extends Controller
     {
         //
         $datosSegundas=request()->except(['_token','_method']);
+
+      if ($request->hasFile('fecha')) {
+          $v_segunda=Segunda::findOrFail($id);
+          Storage::delete('public/.$v_segunda->fecha');
+          $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public'); //almacenar imagen
+       }
+
         Segunda::where('id','=', $id)->update($datosSegundas);
 
         $v_segunda=Segunda::findOrFail($id);

@@ -22,7 +22,7 @@
 
     <label for="fecha">{{'Fecha'}}</label>
     <br>
-    {{ $v_segunda->fecha }}
+    <img src="{{ asset('storage').'/'.$v_segunda->fecha }}" alt="" width="200">
     <br>
     <input type="file" name="fecha" id="Fecha" value="">
     <br><br>

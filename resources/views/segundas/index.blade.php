@@ -21,9 +21,12 @@ Despliegue de datos
 			<td>{{ $segunda->apellido }}</td>
 			<td>{{ $segunda->correo }}</td>
 			<td>{{ $segunda->edad }}</td>
-			<td>{{ $segunda->fecha }}</td>
+			
 			<td>
-
+				<img src="{{ asset('storage').'/'.$segunda->fecha }}" alt="" width="200">
+			</td>
+			
+			<td>
 			<a href="{{ url('/segundas/'.$segunda->id.'/edit') }}">
 				Editar
 			</a> 
