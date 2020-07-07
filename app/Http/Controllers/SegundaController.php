@@ -38,8 +38,14 @@ class SegundaController extends Controller
     public function store(Request $request)
     {
         //
-        $datosSegundas=request()->all();
-        return response()->json($datosSegundas); //almacenar datos en el metodo store 
+        //$datosSegundas=request()->all();
+       $datosSegundas=request()->except('_token'); 
+
+       if ($request->hasFile('fecha')) {
+           $datosSegundas['fecha']=$request->file('fecha')->store('uploads', 'public');
+       }
+        Segunda::insert($datosSegundas);
+        return response()->json($datosSegundas); 
     }
 
     /**
