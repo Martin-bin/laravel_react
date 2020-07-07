@@ -1,4 +1,8 @@
-<form action="" method="post">
+<h2>Editar registro</h2>
+
+<form action="{{ url('/segundas/'.$v_segunda->id) }}" method="post" enctype="multipart/form-data">
+	{{ csrf_field() }}
+	{{ method_field('PATCH') }}
 	
 	<label for="nombre">{{'Nombre'}}</label>
     <input type="text" name="nombre" id="Nombre" value="{{ $v_segunda->nombre }}">
@@ -22,5 +26,6 @@
     <br>
     <input type="file" name="fecha" id="Fecha" value="">
     <br><br>
+    <input type="submit" value ="Guardar cambios">
 
 </form>

@@ -80,9 +80,14 @@ class SegundaController extends Controller
      * @param  \App\segunda  $segunda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, segunda $segunda)
+    public function update(Request $request, $id)
     {
         //
+        $datosSegundas=request()->except(['_token','_method']);
+        Segunda::where('id','=', $id)->update($datosSegundas);
+
+        $v_segunda=Segunda::findOrFail($id);
+        return view('segundas.edit',compact('v_segunda'));
     }
 
     /**
